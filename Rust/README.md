@@ -28,7 +28,7 @@ sudo make install
 ```rust
 fn main() {
     println!("cargo:rustc-link-search=/opt/OpenBLAS/lib");
-    pritnln!("cargo:rustc-link-lib=dylib=gfortran");
+    println!("cargo:rustc-link-lib=dylib=gfortran");
     println!("cargo:rustc-link-lib=dylib=openblas");
 }
 ```
