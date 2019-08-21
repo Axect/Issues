@@ -52,9 +52,9 @@ ln -s /opt/OpenBLAS/lib/libopenblas.a $PWD/libopenblas.a
 
 ## Edit Cargo.toml
 
-* I prefer `cblas` (you can choose `blas` too)
+* I prefer `blas` (you can choose `cblas` too, but there are some bugs)
 
 ```toml
 [dependencies]
-cblas = "0.2"
+blas = "0.20"
 ```
