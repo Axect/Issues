@@ -20,6 +20,12 @@ cd OpenBLAS && make
 sudo make install
 ```
 
+* Add next line to your `.bashrc` or `.zshrc`
+
+```sh
+export LD_LIBRARY_PATH=/opt/OpenBLAS/lib/:$LD_LIBRARY_PATH
+```
+
 ## Rust build script
 
 * Create `build.rs` in your project
