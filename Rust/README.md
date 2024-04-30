@@ -64,3 +64,39 @@ ln -s /opt/OpenBLAS/lib/libopenblas.a $PWD/libopenblas.a
 [dependencies]
 blas = "0.20"
 ```
+
+# Invalid H5_VERSION
+
+## Error message
+
+```sh
+--- stderr
+thread 'main' panicked at /home/[your_name]/.cargo/registry/src/[directory]/hdf5-sys-0.8.1/build.rs:200:21:
+Invalid H5_VERSION: "1.14.3"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+warning: build failed, waiting for other jobs to finish...
+```
+
+## Solution
+
+- Fix `build.rs`
+
+  ```rust
+  let re = Regex::new(r"^(1)\.(8|10|12)\.(\d\d?)(_\d+)?(-patch\d+)?$").ok()?;
+  ```
+
+  ```rust
+  let re = Regex::new(r"^(1)\.(8|10|12|14)\.(\d\d?)(_\d+)?(-patch\d+)?$").ok()?;
+  ```
+
+- Cargo clean
+
+  ```sh
+  cargo clean
+  ```
+
+- Re-build
+
+  ```sh
+  cargo build
+  ```
